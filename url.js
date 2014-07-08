@@ -170,10 +170,7 @@
 				};
 
 				this.toString = function() {
-					var
-						s = '',
-						e = encodeURIComponent
-					;
+					var s = '';
 
 					for (var i in this) {
 						if (this[i] instanceof Function) {
@@ -186,18 +183,18 @@
 							if (len) {
 								for (var ii = 0; ii < len; ii++) {
 									s += s ? '&' : '';
-									s += e( i) + '=' + e( this[i][ii]);
+									s += i + '=' + this[i][ii];
 								}
 							}
 
 							else { // parameter is an empty array, so treat as an empty argument
-								s += (s ? '&' : '') + e( i) + '=';
+								s += (s ? '&' : '') + i + '=';
 							}
 						}
 
 						else {
 							s += s ? '&' : '';
-							s += e( i) + '=' + e( this[i]);
+							s += i + '=' + this[i];
 						}
 					}
 
